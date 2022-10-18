@@ -1,0 +1,32 @@
+<!-- NAVIGATION -->
+<!-- container -->
+<div class="container">
+    <!-- responsive-nav -->
+    <div id="responsive-nav">
+        <!-- NAV -->
+        <ul class="main-nav nav navbar-nav">
+            <li class=""><a href="#!home">Home</a></li>
+            <li><a href="#!store">Tất cả sản phẩm</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Danh mục</a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="item in categories"><a href="#!store/{{item.name}}"> {{item.name}}</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Thương hiệu</a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="item in brands"><a href="#!store/{{item.name}}"> {{item.name}}</a></li>
+                </ul>
+            </li>
+            <li><a href="#!about_us"> Giới thiệu</a></li>
+            <li><a href="#!contact_us"> Liên hệ</a></li>
+            <li><a href="#!faq"> Hỏi đáp</a></li>
+            <li><a href="#"> Thiết kế</a></li>
+        </ul>
+        <!-- /NAV -->
+    </div>
+    <!-- /responsive-nav -->
+</div>
+<!-- /container -->
+<!--/ NAVIGATION -->

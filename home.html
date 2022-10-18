@@ -1,0 +1,360 @@
+<link rel="stylesheet" href="css/slider/animate.css">
+<link rel="stylesheet" href="css/slider/owl.carousel.css">
+<link rel="stylesheet" href="css/slider/owl.theme.css">
+<link rel="stylesheet" href="css/slider/revslider.css">
+<link rel="stylesheet" href="css/slider/jquery.bxslider.css">
+<link rel="stylesheet" href="css/slider/jquery.mobile-menu.css">
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- shop -->
+            <div class="col-md-4 col-xs-6">
+                <div class="shop">
+                    <div class="shop-img">
+                        <img src="./img/shop01.png" alt="">
+                    </div>
+                    <div class="shop-body">
+                        <h3>Laptop<br>Collection</h3>
+                        <a href="#" class="cta-btn">Khám phá ngay <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- /shop -->
+
+            <!-- shop -->
+            <div class="col-md-4 col-xs-6">
+                <div class="shop">
+                    <div class="shop-img">
+                        <img src="./img/shop03.png" alt="">
+                    </div>
+                    <div class="shop-body">
+                        <h3>Accessories<br>Collection</h3>
+                        <a href="#" class="cta-btn">Khám phá ngay <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- /shop -->
+
+            <!-- shop -->
+            <div class="col-md-4 col-xs-6">
+                <div class="shop">
+                    <div class="shop-img">
+                        <img src="./img/shop02.png" alt="">
+                    </div>
+                    <div class="shop-body">
+                        <h3>Cameras<br>Collection</h3>
+                        <a href="#" class="cta-btn">Khám phá ngay <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- /shop -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">Sản phẩm mới ra mắt</h3>
+                </div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        <!-- tab -->
+
+                        <!-- product -->
+                        <div class="product" style="width:21%;margin: 2%;float:left;" ng-repeat="item in products | limitTo : 8" ng-click="viewProduct()">
+                            <a href="#!product/{{item.id}}">
+                                <div class="product-img">
+                                    <img class="imgzzz" src="{{item.images[0]}}" alt="" width="20%" height="210px">
+                                    <div class="product-label">
+                                        <span class="sale" ng-hide="item.sale==0">-{{item.sale}}%</span>
+                                        <span class="new">NEW</span>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">{{item.categoryId}}</p>
+                                    <h3 class="product-name"><a href="#!product/{{item.id}}">{{item.name}}</a></h3>
+                                    <h4 class="product-price" ng-show="item.sale!=0">{{item.price-(item.price*item.sale/100) |currency: 'VND ' :0}}<br> <del class="product-old-price">{{item.price |currency: 'VND ' :0}}</del></h4>
+                                    <h4 class="product-price" ng-show="item.sale==0">{{item.price |currency: 'VND ' :0}} <br><br></h4>
+                                    <div class="product-rating">
+                                        <i ng-class="item.rating>=1 ? 'fa fa-star' : 'fa fa-star-o' "></i>
+                                        <i ng-class="item.rating>=2 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                                        <i ng-class="item.rating>=3 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                                        <i ng-class="item.rating>=4 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                                        <i ng-class="item.rating>=5 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                                    </div>
+                                    <div class="product-btns">
+                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
+                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Thêm để so sánh</span></button>
+                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem hàng nhanh</span></button>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn" ng-click="addToCart(item)"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- /product -->
+
+                        <!-- /tab -->
+                    </div>
+                </div>
+            </div>
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- HOT DEAL SECTION -->
+<div id="hot-deal" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hot-deal">
+                    <ul class="hot-deal-countdown">
+                        <li>
+                            <div>
+                                <h3 id="days"></h3>
+                                <span>Ngày</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 id="hours"></h3>
+                                <span>Giờ</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 id="minutes"></h3>
+                                <span>Phút</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 id="seconds"></h3>
+                                <span>Giây</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h2 class="text-uppercase">Hot deal trong tuần</h2>
+                    <p>Khuyến mãi dòng sản phẩm mới lên đến 50%</p>
+                    <a class="primary-btn cta-btn" href="#">Xem ngay</a>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /HOT DEAL SECTION -->
+
+<!-- SECTION -->
+<div class="section" ">
+    <!-- container -->
+    <div class="container ">
+        <!-- row -->
+        <div class="row ">
+
+            <!-- section title -->
+            <div class="col-md-12 ">
+                <div class="section-title ">
+                    <h3 class="title ">Giảm giá nhiều nhất</h3>
+                </div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12 ">
+                <div class="row ">
+                    <div class="products-tabs ">
+                        <!-- tab -->
+
+                        <!-- product -->
+                        <div class="product " style="width:21%;margin: 2%;float:left; " ng-repeat="item in products | orderBy : '-sale'| limitTo : 4 ">
+                            <a href="#!product/{{item.id}} ">
+                                <div class="product-img ">
+                                    <img src="{{item.images[1]}} " alt=" " width="20% " height="210px ">
+                                    <div class="product-label ">
+                                        <span class="sale " ng-hide="item.sale==0 ">-{{item.sale}}%</span>
+                                        <span class="new ">NEW</span>
+                                    </div>
+                                </div>
+                                <div class="product-body ">
+                                    <p class="product-category ">{{item.categoryId}}</p>
+                                    <h3 class="product-name "><a href="#!product/{{item.id}} ">{{item.name}}</a></h3>
+                                    <h4 class="product-price " ng-show="item.sale!=0 ">{{item.price-(item.price*item.sale/100) |currency: 'VND ' :0}}<br> <del class="product-old-price ">{{item.price |currency: 'VND ' :0}}</del></h4>
+                                    <h4 class="product-price " ng-show="item.sale==0 ">{{item.price |currency: 'VND ' :0}} <br><br></h4>
+                                    <div class="product-rating ">
+                                        <i ng-class="item.rating>=1 ? 'fa fa-star' : 'fa fa-star-o' "></i>
+    <i ng-class="item.rating>=2 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+    <i ng-class="item.rating>=3 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+    <i ng-class="item.rating>=4 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+    <i ng-class="item.rating>=5 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+</div>
+<div class="product-btns">
+    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
+    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Thêm để so sánh</span></button>
+    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem hàng nhanh</span></button>
+</div>
+</div>
+<div class="add-to-cart">
+    <button class="add-to-cart-btn" ng-click="addToCart(item)"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+</div>
+</a>
+</div>
+<!-- /product -->
+
+<!-- /tab -->
+</div>
+</div>
+</div>
+<!-- /Products tab & slick -->
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title">Sắp hết hàng</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-3" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-3">
+                    <div>
+                        <!-- product widget -->
+                        <div class="product-widget" ng-repeat="item in products | orderBy : '-quantity'| limitTo : 3 ">
+                            <div class="product-img">
+                                <img src="{{item.images[1]}}" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">{{item.categoryId}}</p>
+                                <h3 class="product-name"><a href="#!product/{{item.id}}">{{item.name}}</a></h3>
+                                <h4 class="product-price" ng-show="item.sale!=0">{{item.price-(item.price*item.sale/100) |currency: 'VND ' :0}}<br> <del class="product-old-price">{{item.price |currency: 'VND ' :0}}</del></h4>
+                                <h4 class="product-price" ng-show="item.sale==0">{{item.price |currency: 'VND ' :0}} <br><br></h4>
+                            </div>
+                        </div>
+                        <!-- /product widget -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title">Xu hướng</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-4" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-3">
+                    <div>
+                        <!-- product widget -->
+                        <div class="product-widget" ng-repeat="item in products | orderBy : '-rating'| limitTo : 3 ">
+                            <div class="product-img">
+                                <img src="{{item.images[2]}}" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">{{item.categoryId}}</p>
+                                <h3 class="product-name"><a href="#!product/{{item.id}}">{{item.name}}</a></h3>
+                                <h4 class="product-price" ng-show="item.sale!=0">{{item.price-(item.price*item.sale/100) |currency: 'VND ' :0}}<br> <del class="product-old-price">{{item.price |currency: 'VND ' :0}}</del></h4>
+                                <h4 class="product-price" ng-show="item.sale==0">{{item.price |currency: 'VND ' :0}} <br><br></h4>
+                            </div>
+                        </div>
+                        <!-- /product widget -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix visible-sm visible-xs"></div>
+
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title">Top khuyến mãi</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-5" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-3">
+                    <div>
+                        <!-- product widget -->
+                        <div class="product-widget" ng-repeat="item in products | orderBy : '-sale'| limitTo : 3 ">
+                            <div class="product-img">
+                                <img src="{{item.images[1]}}" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">{{item.categoryId}}</p>
+                                <h3 class="product-name"><a href="#!product/{{item.id}}">{{item.name}}</a></h3>
+                                <h4 class="product-price" ng-show="item.sale!=0">{{item.price-(item.price*item.sale/100) |currency: 'VND ' :0}}<br> <del class="product-old-price">{{item.price |currency: 'VND ' :0}}</del></h4>
+                                <h4 class="product-price" ng-show="item.sale==0">{{item.price |currency: 'VND ' :0}} <br><br></h4>
+                            </div>
+                        </div>
+                        <!-- /product widget -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<div class="offer-slider wow animated parallax parallax-2">
+    <div class="container">
+        <ul class="bxslider">
+            <li>
+                <h2>Khuyến mãi mới</h2>
+                <h1>Sale up to 30% off</h1>
+                <p>Chương trình quà tặng đặc biệt .ƯU ĐÃI KHI MUA KÈM LAPTOP TẠI Etronic: ⭐ Mua chuột không dây LM115G Bluetooth chỉ với 100,000đ. ⭐ Giảm ngay 100,000đ khi mua thêm màn hình máy tính. ⭐ Giảm ngay 100,000đ khi mua thêm ram. </p>
+                <a class="shop-now" href="#">Shop now</a> </li>
+            <li>
+                <h2>Sản phẩm mới</h2>
+                <h1>Chuột Rapoo V16 Black</h1>
+                <p>Thông tin chung : <br> Nhà Sản Xuất: Rapoo <br> Bảo Hành: 24 tháng</p>
+                <a class="shop-now" href="#">View More</a> </li>
+            <li>
+                <h2>Chương trình mới</h2>
+                <h1>KHUYẾN MÃI BÀN PHÍM</h1>
+                <p>Switch quang học RAZER Cung cấp truyền động nhanh hơn, nhẹ hơn và mượt mà hơn so với các công tắc cơ học và kéo dài lâu hơn vì nó đòi hỏi ít bộ phận chuyển động hoạt động với ma sát ít hơn. Có sẵn trong hai biến thể. </p>
+                <a class="shop-now" href="#">Learn More</a> </li>
+        </ul>
+    </div>
+</div>
+<div ng-include=" '_newsletter.html' "></div>
+<script src="js/slider/jquery.bxslider.min.js"></script>

@@ -1,0 +1,224 @@
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="#!home">Home</a></li>
+                    <li><a href="#!store">Tất cả</a></li>
+                    <li><a href="#!store/{{product.categoryId}}">{{product.categoryId}}</a></li>
+                    <li class="active">{{product.name}}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Product main img -->
+            <div class="col-md-5 col-md-push-2">
+                <div id="product-main-img">
+                    <div class="product-preview ">
+                        <img src="{{product.images[0]}} " alt=" ">
+                    </div>
+                    <div class="product-preview ">
+                        <img src="{{product.images[1]}} " alt=" ">
+                    </div>
+                    <div class="product-preview ">
+                        <img src="{{product.images[2]}} " alt=" ">
+                    </div>
+                    <div class="product-preview ">
+                        <img src="{{product.images[3]}} " alt=" ">
+                    </div>
+                </div>
+            </div>
+            <!-- /Product main img -->
+
+            <!-- Product thumb imgs -->
+            <div class="col-md-2  col-md-pull-5">
+                <div id="product-imgs">
+                    <div class="product-preview">
+                        <img src="{{product.images[0]}}" alt="">
+                    </div>
+
+                    <div class="product-preview">
+                        <img src="{{product.images[1]}}" alt="">
+                    </div>
+
+                    <div class="product-preview">
+                        <img src="{{product.images[2]}}" alt="">
+                    </div>
+                    <div class="product-preview">
+                        <img src="{{product.images[3]}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- /Product thumb imgs -->
+
+            <!-- Product details -->
+            <div class="col-md-5 " style="border: 4px solid red; border-radius: 20px; padding: 2% 5%;background-color: whitesmoke; ">
+                <div class="product-details ">
+                    <h2 class="product-name ">{{product.name}}</h2>
+                    <div>
+                        <div class="product-rating ">
+                            <i ng-class="product.rating>=1 ? 'fa fa-star' : 'fa fa-star-o' "></i>
+                            <i ng-class="product.rating>=2 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                            <i ng-class="product.rating>=3 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                            <i ng-class="product.rating>=4 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                            <i ng-class="product.rating>=5 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                        </div>
+                        <!-- <a class="review-link" href="#">10 đánh giá | Thêm đánh giá</a> -->
+                    </div>
+                    <div>
+                        <h3 class="product-price" ng-show="product.sale!=0">{{product.price-(product.price*product.sale/100) |currency: 'VND ' :0}} <del class="product-old-price">{{product.price |currency: 'VND ' :0}}</del></h3>
+                        <h3 class="product-price" ng-show="product.sale==0">{{product.price |currency: 'VND ' :0}} </h3>
+                        <span class="product-available" ng-show="product.quantity>0">Còn hàng</span>
+                    </div>
+                    <p>{{product.decription1}}</p><br>
+
+                    <div class="product-options">
+                        <label>
+                            Color
+                            <select class="input-select">
+                                <option value="0">Black</option>
+                                <option value="0">Gray</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="add-to-cart">
+                        <div class="qty-label">
+                            Qty
+                            <div class="input-number">
+                                <input type="number" ng-model="qty" min="1">
+                                <span class="qty-up">+</span>
+                                <span class="qty-down">-</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" ng-click="addProduct()"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+                    </div>
+
+                    <ul class="product-btns">
+                        <li><a href="#"><i class="fa fa-heart-o"></i> Yêu thích</a></li>
+                        <li><a href="#"><i class="fa fa-exchange"></i> Thêm so sánh</a></li>
+                    </ul>
+
+                    <ul class="product-links">
+                        <li>Danh mục:</li>
+                        <li><a href="#">Laptop</a></li>
+                    </ul>
+
+                    <ul class="product-links">
+                        <li>Share:</li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <!-- /Product details -->
+
+            <!-- Product tab -->
+            <div class="col-md-12">
+                <div id="product-tab" style="margin-top: 30px;">
+                    <!-- product tab nav -->
+                    <ul class="tab-nav">
+                        <li class="active"><a data-toggle="tab" href="">Mô tả</a></li>
+                    </ul>
+                    <!-- /product tab nav -->
+
+                    <!-- product tab content -->
+                    <div class="tab-content">
+                        <!-- tab1  -->
+                        <div id="tab1" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{product.decription2}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /product tab content  -->
+                </div>
+            </div>
+            <!-- /product tab -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- Section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 class="title">Sản phẩm khác</h3>
+                </div>
+            </div>
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6" ng-repeat="item in prods | limitTo:4">
+                <a href="#!product/{{item.id}} ">
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="{{item.images[0]}}" width="20%" height="210px" alt="">
+                            <div class="product-label">
+                                <span class="sale" ng-hide="item.sale==0">-{{item.sale}}%</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">{{item.categoryId}}</p>
+                            <h3 class="product-name"><a href="#!product/{{item.id}} ">{{item.name}}</a></h3>
+                            <h4 class="product-price" ng-show="item.sale!=0">{{item.price-(item.price*item.sale/100) |currency: 'VND ' :0}}<br> <del class="product-old-price">{{item.price |currency: 'VND ' :0}}</del></h4>
+                            <h4 class="product-price" ng-show="item.sale==0">{{item.price |currency: 'VND ' :0}} <br><br></h4>
+                            <div class="product-rating">
+                                <i ng-class="item.rating>=1 ? 'fa fa-star' : 'fa fa-star-o' "></i>
+                                <i ng-class="item.rating>=2 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                                <i ng-class="item.rating>=3 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                                <i ng-class="item.rating>=4 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                                <i ng-class="item.rating>=5 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                            </div>
+                            <div class="product-btns">
+                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                            </div>
+                        </div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn" ng-click="addToCart(item)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /product -->
+            <div class="clearfix visible-sm visible-xs"></div>
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /Section -->
+<div ng-include=" '_newsletter.html' "></div>
+
+<!-- jQuery Plugins -->
+<script src="js/main.js"></script>

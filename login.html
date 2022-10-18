@@ -1,0 +1,53 @@
+<div id="mainCoantiner">
+    <!--dust particel-->
+    <div>
+        <div class="starsec"></div>
+        <div class="starthird"></div>
+        <div class="starfourth"></div>
+        <div class="starfifth"></div>
+    </div>
+    <!--Dust particle end--->
+</div>
+<!-- SECTION -->
+<div class=" section" style="background-color: #181828;min-height: 700px;padding-top: 120px;" ng-controller="accountCtrl">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class=" col-md-5" name="">
+                <img style="margin-top: 20px;" src="https://media1.giphy.com/media/Rm3SJ0id6L9ZDLotBH/giphy.gif?cid=790b76112c09a2b79e95cdabc4b6ea30618a1baa2413b538&rid=giphy.gif&ct=sf" alt="">
+            </div>
+            <div class="col-md-5 col-md-push-1" name="">
+                <div class="login-box">
+                    <h2>Đăng nhập</h2>
+                    <form name="frmInfo">
+                        <div class="user-box">
+                            <input type="email" name="email" ng-model="email" required>
+                            <label>Tài khoản 
+                                <span class="label-error" ng-if="frmInfo.email.$error.required && frmInfo.email.$dirty" >Nhập email của bạn</span>
+                                <span class="label-error" ng-if="frmInfo.email.$error.email && frmInfo.email.$dirty" >Không đúng định dạng email</span>
+                            </label>
+                        </div>
+                        <div class="user-box">
+                            <input type="password" ng-model="password" name="password" required>
+                            <label>Mật khẩu
+                                <span class="label-error" ng-if="frmInfo.password.$error.required && frmInfo.password.$dirty" >Không để trống mật khẩu</span></label>
+                        </div>
+                        <div ng-hide="!error" class="user-box"><label style="color: red;">{{error}}</label></div>
+                        <div class="user-box" ng-show="success">
+                            <label id="time" style="color: cyan;"></label></div>
+                        <br ng-if="error">
+                        <button ng-click="checkLogin()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span> Đăng nhập
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
